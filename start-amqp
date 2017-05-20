@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# immediately fail if an error occurs
+set -e
+
+docker rm -fv gk-rabbitmq || true
+docker run -d -p 5672:5672 --name gk-rabbitmq rabbitmq:3
+sleep 1
