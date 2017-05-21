@@ -35,8 +35,8 @@
     "deploy": "./deploy",
     "install": "npm prune",
     "mq:start": "./start-amqp",
-    "pretest": "standard && npm run mq:start",
-    "start": "DEBUG=follow node --harmony_async_await index.js",
-    "test": "nyc tap --node-arg=--harmony_async_await --no-cov ./test"
+    "pretest": "standard && npm run mq:start && sleep 10s",
+    "start": "DEBUG=follow node index.js",
+    "test": "nyc tap --no-cov ./test"
   }
 }
