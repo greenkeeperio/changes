@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "nock": "^9.0.13",
-    "nyc": "^10.3.2",
+    "nyc": "^11.0.2",
     "proxyquire": "^1.7.10",
     "redis-mock": "^0.17.0",
     "standard": "^10.0.2",
