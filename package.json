@@ -18,7 +18,7 @@
     "proxyquire": "^2.0.0",
     "redis-mock": "^0.17.0",
     "standard": "^10.0.2",
-    "tap": "^10.3.2"
+    "tap": "^11.0.0"
   },
   "engines": {
     "node": "7"
