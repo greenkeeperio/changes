@@ -62,8 +62,8 @@ const {
   test('check follower invalid http response', t => {
     t.plan(1)
     nock('https://skimdb.npmjs.com')
-    .get('/registry')
-    .reply(500, {})
+      .get('/registry')
+      .reply(500, {})
 
     checkFollower({
       registry: {
@@ -77,8 +77,8 @@ const {
   test('check follower valid seq', t => {
     t.plan(4)
     nock('https://skimdb.npmjs.com')
-    .get('/registry')
-    .reply(200, {update_seq: 5000})
+      .get('/registry')
+      .reply(200, {update_seq: 5000})
 
     const client = redis.createClient()
     client.set('gk-seq', 4000, err => {
@@ -105,8 +105,8 @@ const {
   test('check follower invalid seq', t => {
     t.plan(5)
     nock('https://skimdb.npmjs.com')
-    .get('/registry')
-    .reply(200, {update_seq: 5000})
+      .get('/registry')
+      .reply(200, {update_seq: 5000})
 
     const client = redis.createClient()
     client.set('gk-seq', 6000, err => {
