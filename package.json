@@ -15,10 +15,10 @@
   "devDependencies": {
     "nock": "^9.0.13",
     "nyc": "^11.0.2",
-    "proxyquire": "^1.7.10",
+    "proxyquire": "^2.0.0",
     "redis-mock": "^0.18.0",
     "standard": "^10.0.2",
-    "tap": "^10.3.2"
+    "tap": "^11.0.0"
   },
   "engines": {
     "node": "7"

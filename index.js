@@ -19,7 +19,9 @@ const {parseRegistryUrl, checkFollower, startChanges} = require('./lib/follow')
       client,
       registry
     }, (err, changes) => {
-      if (err) return start()
+      if (err) {
+        setTimeout(start, 1000)
+      }
       const check = checkFollower.bind(null, {
         registry,
         changes,
