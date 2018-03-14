@@ -7,6 +7,7 @@ const {test, afterEach, tearDown} = require('tap')
 const proxyquire = require('proxyquire')
 
 const env = require('../lib/env')
+const { sleep } = require('../lib/util')
 
 class ChangesStream extends EventEmitter {
   constructor (opts) {
@@ -161,7 +162,18 @@ const {
         }
       }
     })
-    const job = await channel.get(env.QUEUE_NAME)
+
+    let job
+    do {
+      try {
+        job = await channel.get(env.QUEUE_NAME)
+        await sleep(env.REGISTRY_CHANGE_DELAY / 2)
+      } catch (e) {
+        t.error(e)
+        break
+      }
+    } while (job === false)
+
     t.same(JSON.parse(job.content.toString()), {
       name: 'registry-change',
       dependency: 'package',
