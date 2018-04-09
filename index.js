@@ -1,8 +1,10 @@
 const amqp = require('amqplib')
 const redis = require('redis')
+const isEmpty = require('lodash').isEmpty
 
 const env = require('./lib/env')
 const {parseRegistryUrl, checkFollower, startChanges} = require('./lib/follow')
+const isNotEmpty = (value) => !isEmpty(value)
 
 ;(async () => {
   const conn = await amqp.connect(env.AMQP_URL)
@@ -12,7 +14,7 @@ const {parseRegistryUrl, checkFollower, startChanges} = require('./lib/follow')
   })
   const client = redis.createClient(env.REDIS_URL)
 
-  env.REGISTRY_URLS.forEach(registryUrl => {
+  env.REGISTRY_URLS.filter(isNotEmpty).forEach(registryUrl => {
     const registry = parseRegistryUrl(registryUrl)
     const start = startChanges.bind(null, {
       channel,
