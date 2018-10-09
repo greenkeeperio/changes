@@ -1,9 +1,9 @@
-const {EventEmitter} = require('events')
+const { EventEmitter } = require('events')
 
 const amqp = require('amqplib')
 const nock = require('nock')
 const redis = require('redis-mock')
-const {test, afterEach, tearDown} = require('tap')
+const { test, afterEach, tearDown } = require('tap')
 const proxyquire = require('proxyquire')
 
 const env = require('../lib/env')
@@ -79,7 +79,7 @@ const {
     t.plan(4)
     nock('https://skimdb.npmjs.com')
       .get('/registry')
-      .reply(200, {update_seq: 5000})
+      .reply(200, { update_seq: 5000 })
 
     const client = redis.createClient()
     client.set('gk-seq', 4000, err => {
@@ -107,7 +107,7 @@ const {
     t.plan(5)
     nock('https://skimdb.npmjs.com')
       .get('/registry')
-      .reply(200, {update_seq: 5000})
+      .reply(200, { update_seq: 5000 })
 
     const client = redis.createClient()
     client.set('gk-seq', 6000, err => {
@@ -182,7 +182,7 @@ const {
         next: '2.0.0-rc1'
       },
       versions: {
-        '1.0.0': {gitHead: 'a213fe9c'},
+        '1.0.0': { gitHead: 'a213fe9c' },
         '2.0.0-rc1': {}
       },
       registry: rawUrl
@@ -204,7 +204,7 @@ const {
       registry: {
         url,
         seqKey: 'gk-seq-2',
-        query: {token: '1234'}
+        query: { token: '1234' }
       }
     }, (err, changes) => {
       if (err) return t.ok(savedChanges.destroyed, 'destroyed')
@@ -213,7 +213,7 @@ const {
         db: url,
         since: 'now',
         include_docs: true,
-        query_params: {token: '1234'}
+        query_params: { token: '1234' }
       }, 'opts')
       changes.emit('error', new Error('restart'))
     })
