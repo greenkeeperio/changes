@@ -2,7 +2,7 @@ const amqp = require('amqplib')
 const redis = require('redis')
 
 const env = require('./lib/env')
-const {parseRegistryUrl, checkFollower, startChanges} = require('./lib/follow')
+const { parseRegistryUrl, checkFollower, startChanges } = require('./lib/follow')
 
 ;(async () => {
   const conn = await amqp.connect(env.AMQP_URL)
