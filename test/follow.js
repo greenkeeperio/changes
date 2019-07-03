@@ -154,7 +154,12 @@ const {
         versions: {
           '1.0.0': {
             name: 'package',
-            gitHead: 'a213fe9c'
+            gitHead: 'a213fe9c',
+            license: 'MIT',
+            _npmUser: {
+              name: 'alf',
+              email: 'alf@melmac.universe'
+            }
           },
           '2.0.0rc1': {
             name: 'package-rc'
@@ -182,7 +187,7 @@ const {
         next: '2.0.0-rc1'
       },
       versions: {
-        '1.0.0': { gitHead: 'a213fe9c' },
+        '1.0.0': { gitHead: 'a213fe9c', license: 'MIT', _npmUser: { name: 'alf', email: 'alf@melmac.universe' } },
         '2.0.0-rc1': {}
       },
       registry: rawUrl
