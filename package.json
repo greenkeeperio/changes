@@ -2,7 +2,7 @@
   "name": "@greenkeeper/changes",
   "version": "0.0.0-placeholder",
   "dependencies": {
-    "amqplib": "^0.5.1",
+    "amqplib": "^0.5.5",
     "changes-stream": "^2.1.0",
     "envalid": "^4.0.0",
     "hot-shots": "^5.0.0",
