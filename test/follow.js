@@ -199,9 +199,9 @@ const {
   })
 
   test('start changes', t => {
-    t.plan(2)
+    t.plan(5)
     const client = redis.createClient()
-    const url = 'https://skimdb.npmjs.com/registry'
+    const url = 'https://skimdb.npmjs.com/registry/'
     let savedChanges
     startChanges({
       channel,
@@ -212,14 +212,12 @@ const {
         query: { token: '1234' }
       }
     }, (err, changes) => {
-      if (err) return t.ok(savedChanges.destroyed, 'destroyed')
+      if (err) return t.ok(savedChanges._destroying, 'destroyed')
       savedChanges = changes
-      t.same(changes._opts, {
-        db: url,
-        since: 'now',
-        include_docs: true,
-        query_params: { token: '1234' }
-      }, 'opts')
+      t.same(changes.db, url)
+      t.same(changes.since, 'now')
+      t.same(changes.include_docs, true)
+      t.same(changes.query_params, { token: '1234' })
       changes.emit('error', new Error('restart'))
     })
   })
