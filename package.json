@@ -5,7 +5,7 @@
     "@npmcorp/changes-stream": "^1.0.0",
     "amqplib": "^0.5.1",
     "envalid": "^4.0.0",
-    "hot-shots": "^5.0.0",
+    "hot-shots": "^6.0.0",
     "lodash": "^4.16.2",
     "normalize-registry-metadata": "^1.1.2",
     "redis": "^2.6.2",
