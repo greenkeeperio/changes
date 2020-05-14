@@ -3,7 +3,7 @@
   "version": "0.0.0-placeholder",
   "dependencies": {
     "@npmcorp/changes-stream": "^1.0.0",
-    "amqplib": "^0.5.1",
+    "amqplib": "^0.5.6",
     "envalid": "^4.0.0",
     "hot-shots": "^5.0.0",
     "lodash": "^4.16.2",
